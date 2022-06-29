@@ -11,14 +11,17 @@ const setClock = () => {
         timeOfDay = "morning";
         console.log(timeOfDay);
     }else if (hour >= 12 && hour < 18) {
-        if (hour >= 13) hour -= 12;
+        hour = (hour >= 13) ? hour -= 12 : hour;
         timeOfDay = "afternoon";
         console.log(timeOfDay);
     }else if (hour >= 18 && hour < 5){
-        if (hour >= 18) hour -= 12;
+        hour = (hour >= 18) ? hour -= 12 : hour;
         timeOfDay = "evening";
         console.log(timeOfDay);
     }
+
+    hour = (hour < 10) ? "0" + hour : hour;
+    minute = (minute < 10) ? "0" + minute : minute;
 
     let time = hour + ":" + minute;
 
