@@ -20,7 +20,7 @@ const setClock = () => {
         console.log(timeOfDay);
     }
 
-    let time = hour + ":" + minute +;
+    let time = hour + ":" + minute;
 
     console.log(today);
     document.querySelector("#clockHeader").innerText = time;
