@@ -5,7 +5,6 @@ const setClock = () => {
 
     let hour = today.getHours();
     let minute = today.getMinutes();
-    let second = today.getSeconds()
     let timeOfDay = ""
 
     if (hour >= 5 && hour < 12) {
@@ -21,7 +20,7 @@ const setClock = () => {
         console.log(timeOfDay);
     }
 
-    let time = hour + ":" + minute + ":" + second;
+    let time = hour + ":" + minute +;
 
     console.log(today);
     document.querySelector("#clockHeader").innerText = time;
