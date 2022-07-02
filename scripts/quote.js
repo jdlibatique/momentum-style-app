@@ -28,3 +28,5 @@ const setQuote = () => {
 
     document.querySelector("#quote").innerHTML = quote;
 }
+
+document.querySelector("#quote-button").addEventListener("click", setQuote);
