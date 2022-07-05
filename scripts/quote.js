@@ -18,18 +18,27 @@ const quoteArray = ["“When you have a dream, you’ve got to grab it and never
         "“You define your own life. Don’t let other people write your script.”\n" +
         "— Oprah Winfrey"];
 
-localStorage.setItem('quotes', JSON.stringify(quoteArray));
+const localQuotes = JSON.parse(localStorage.getItem('quotes'));
 
+if (!localQuotes) {
+    // set item to local storage
+}
 function addQuote() {
     let newQuote = prompt("Enter the new quote: ");
     if (newQuote != null) {
-        quoteArray.push(newQuote);
+        localQuotes.push(newQuote);
     }
-    localStorage.setItem('quotes', JSON.stringify(quoteArray));
+    setLocalStorage(localQuotes);
 }
 
-const setQuote = () => {
+function setLocalStorage (localQuotes) {
+   localStorage.setItem('quotes', JSON.stringify(localQuotes));
+   console.log('array', localQuotes.length);
+   console.log('localstorage', JSON.parse(localStorage.getItem('quotes')));
+}
 
+
+const setQuote = () => {
     const storedQuotes = JSON.parse(localStorage.getItem('quotes'));
 
     let seed = Math.floor(Math.random() * storedQuotes.length);
