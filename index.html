@@ -7,10 +7,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://kit.fontawesome.com/84aaff1918.js" crossorigin="anonymous"></script>
 </head>
-<body onload="setClock(); setBackground()">
+<body onload="setBackground(); setQuote()">
+<section id="main-section">
     <h1 id="clockHeader"></h1>
-    <script src="scripts/clock.js"></script>
+    <h6 id="quote"></h6>
+    <button id="quote-button"><i class="fa-solid fa-rotate-right"></i></button>
+    <button id="add-quote">+</button>
+    <br>
+    <br>
+    <label id="name-label" for="name">Hello, what's your name?</label><br>
+    <input type="text" name="name" id="name" required>
+    <br>
+    <br>
+    <div id="main-focus">What is your main focus for today?</div>
+    <div id="main-focus-checkbox">
+        <input type="checkbox" name="focus" id="focus-checkbox" onclick="focusCheckBoxValidate()">
+        <label id="focus-label"></label>
+    </div>
+    <input type="text" name="focus-txtbox" id="focus-txtbox" required>
+</section>
+    <script src="scripts/main.js"></script>
     <script src="scripts/background.js"></script>
+    <script src="scripts/quote.js"></script>
+    <script src="scripts/name.js" type="module"></script>
+    <script src="scripts/focus.js"></script>
 </body>
 </html>
