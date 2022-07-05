@@ -17,9 +17,18 @@
     <br>
     <label id="name-label" for="name">Hello, what's your name?</label><br>
     <input type="text" name="name" id="name" required>
+    <br>
+    <br>
+    <div id="main-focus">What is your main focus for today?</div>
+    <div id="main-focus-checkbox">
+        <input type="checkbox" name="focus" id="focus-checkbox" onclick="focusCheckBoxValidate()">
+        <label id="focus-label"></label>
+    </div>
+    <input type="text" name="focus-txtbox" id="focus-txtbox" required>
     <script src="scripts/clock.js"></script>
     <script src="scripts/background.js"></script>
     <script src="scripts/quote.js"></script>
     <script src="scripts/name.js"></script>
+    <script src="scripts/focus.js"></script>
 </body>
 </html>

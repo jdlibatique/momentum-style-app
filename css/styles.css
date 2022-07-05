@@ -10,7 +10,16 @@ body {
     overflow: hidden;
 }
 
-h1, h2, h3, h4, h5, h6, label {
+div {
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, label, div {
     font-family: "Ubuntu", sans-serif;
     color: #f4efef;
+}
+
+#focus-txtbox {
+    position: absolute;
+    top: 239px;
 }
