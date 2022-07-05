@@ -1,8 +1,4 @@
-const setQuote = () => {
-    let seed = Math.floor(Math.random() * 10);
-    console.log(seed)
-
-    const quoteArray = ["“When you have a dream, you’ve got to grab it and never let go.”\n" +
+const quoteArray = ["“When you have a dream, you’ve got to grab it and never let go.”\n" +
     "— Carol Burnett",
         "“Nothing is impossible. The word itself says ‘I’m possible!'”\n" +
         "— Audrey Hepburn",
@@ -20,9 +16,26 @@ const setQuote = () => {
         "“Success is not final, failure is not fatal: it is the courage to continue that counts.”\n" +
         "– Winston Churchill",
         "“You define your own life. Don’t let other people write your script.”\n" +
-        "— Oprah Winfrey"]
+        "— Oprah Winfrey"];
 
-    let quote = quoteArray[seed];
+localStorage.setItem('quotes', JSON.stringify(quoteArray));
+
+function addQuote() {
+    let newQuote = prompt("Enter the new quote: ");
+    if (newQuote != null) {
+        quoteArray.push(newQuote);
+    }
+    localStorage.setItem('quotes', JSON.stringify(quoteArray));
+}
+
+const setQuote = () => {
+
+    const storedQuotes = JSON.parse(localStorage.getItem('quotes'));
+
+    let seed = Math.floor(Math.random() * storedQuotes.length);
+    console.log(seed)
+
+    let quote = storedQuotes[seed];
     console.log("Quote index: " + seed + " " + quote);
     let quoteParagraph = document.createElement("p");
 
@@ -30,3 +43,4 @@ const setQuote = () => {
 }
 
 document.querySelector("#quote-button").addEventListener("click", setQuote);
+document.querySelector("#add-quote").addEventListener("click", addQuote);
