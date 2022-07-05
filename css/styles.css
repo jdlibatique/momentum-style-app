@@ -14,3 +14,15 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Ubuntu", sans-serif;
     color: #f4efef;
 }
+
+#quote-button, #add-quote-button {
+    background-color: transparent;
+    border: none;
+    color: #272727;
+    transition: 500ms ease-in-out;
+    display: none;
+}
+
+#quote-button:hover, #add-quote-button:hover {
+    color: #a6fff8;
+}

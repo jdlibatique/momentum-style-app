@@ -1,7 +1,4 @@
 const setQuote = () => {
-    let seed = Math.floor(Math.random() * 10);
-    console.log(seed)
-
     const quoteArray = ["“When you have a dream, you’ve got to grab it and never let go.”\n" +
     "— Carol Burnett",
         "“Nothing is impossible. The word itself says ‘I’m possible!'”\n" +
@@ -21,6 +18,8 @@ const setQuote = () => {
         "– Winston Churchill",
         "“You define your own life. Don’t let other people write your script.”\n" +
         "— Oprah Winfrey"]
+    let seed = Math.floor(Math.random() * quoteArray.length);
+    console.log(seed)
 
     let quote = quoteArray[seed];
     console.log("Quote index: " + seed + " " + quote);
@@ -30,3 +29,7 @@ const setQuote = () => {
 }
 
 document.querySelector("#quote-button").addEventListener("click", setQuote);
+document.querySelector("#quote").addEventListener("mouseover", () => {
+    document.querySelector("#quote-button").style.display = "unset";
+    document.querySelector("#add-quote-button").style.display = "unset";
+})
