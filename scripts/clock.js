@@ -1,4 +1,4 @@
-const setClock = () => {
+export const setClock = () => {
     // let today= new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
     let today = new Date();
@@ -14,7 +14,7 @@ const setClock = () => {
         hour = (hour >= 13) ? hour -= 12 : hour;
         timeOfDay = "afternoon";
         console.log(timeOfDay);
-    }else if (hour >= 18 && hour < 5){
+    }else if (hour >= 18 || hour < 5){
         hour = (hour >= 18) ? hour -= 12 : hour;
         timeOfDay = "evening";
         console.log(timeOfDay);
@@ -29,4 +29,5 @@ const setClock = () => {
     document.querySelector("#clockHeader").innerText = time;
     // let timeout = setTimeout(setClock =>  1000);
     let t = setTimeout(() => setClock(), 1000);
+    return timeOfDay;
 }
