@@ -8,7 +8,7 @@ function showTodo(filter) {
     if(todos) {
         todos.forEach((todo, id) => {
             let completed = todo.status == "completed" ? "checked" : "";
-            if(filter == todo.status || filter == "all") {
+            if(filter == "all") {
                 liTag += `<li class="task">
                             <label for="${id}">
                                 <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${completed}>
@@ -38,10 +38,10 @@ function updateStatus(selectedTask) {
     localStorage.setItem("todo-list", JSON.stringify(todos))
 }
 
-function deleteTask(deleteId, filter) {
+function deleteTask(deleteId) {
     todos.splice(deleteId, 1);
     localStorage.setItem("todo-list", JSON.stringify(todos));
-    showTodo(filter);
+    showTodo("all");
 }
 
 clearAll.addEventListener("click", () => {
@@ -54,10 +54,10 @@ taskInput.addEventListener("keyup", e => {
     let userTask = taskInput.value.trim();
     if(e.key == "Enter" && userTask) {
         todos = !todos ? [] : todos;
-        let taskInfo = {name: userTask/*, status: "pending"*/};
+        let taskInfo = {name: userTask, status: "pending"};
         todos.push(taskInfo);
         taskInput.value = "";
         localStorage.setItem("todo-list", JSON.stringify(todos));
-        showTodo(document.querySelector("span.active").id);
+        showTodo("all");
     }
 });
