@@ -15,13 +15,12 @@ h1, h2, h3, h4, h5, h6 {
     color: #f4efef;
 }
 
-/* Import Google Font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 .wrapper{
@@ -33,7 +32,7 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(255, 255, 255, 0.9);
     border-radius: 4px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-
+    font-family: 'Poppins', sans-serif;
 }
 .controls, li{
     display: flex;

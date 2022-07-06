@@ -14,7 +14,7 @@ function showTodo(filter) {
                                 <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${completed}>
                                 <p class="${completed}">${todo.name}</p>
                             </label>
-                            <span onclick='deleteTask(${id}, "${filter}")' class="uil uil-trash"></span>
+                            <span onclick='deleteTask(${id})' class="uil uil-trash"></span>
                         </li>`;
             }
         });
