@@ -20,7 +20,6 @@ export const setClock = () => {
         console.log(timeOfDay);
     }
 
-    hour = (hour < 10) ? "0" + hour : hour;
     minute = (minute < 10) ? "0" + minute : minute;
 
     let time = hour + ":" + minute;
