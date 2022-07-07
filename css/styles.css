@@ -20,8 +20,12 @@ h1, h2, h3, h4, h5, h6, label, div {
 }
 
 #focus-txtbox {
-    position: absolute;
-    top: 239px;
+    position: fixed;
+    bottom: 180px;
+}
+
+#focus-checkbox {
+    display: none;
 }
 
 #main-section {
