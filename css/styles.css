@@ -105,6 +105,10 @@ input[type="checkbox"] {
     background: none;
 }
 
+#name:focus::placeholder {
+    color: transparent;
+}
+
 ::placeholder {
     font-size: 3vw;
     color: #fff;
