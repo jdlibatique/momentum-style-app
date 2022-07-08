@@ -11,22 +11,23 @@
 </head>
 <body onload="setBackground(); setQuote()">
 <section id="main-section">
+
     <h1 id="clockHeader"></h1>
-    <h6 id="quote"></h6>
-    <button id="quote-button"><i class="fa-solid fa-rotate-right"></i></button>
-    <button id="add-quote">+</button>
-    <br>
-    <br>
-    <label id="name-label" for="name">Hello, what's your name?</label><br>
-    <input type="text" name="name" id="name" required>
-    <br>
-    <br>
+    <label id="name-label" for="name"></label><br>
+    <input type="text" name="name" id="name" placeholder="Hello, what's your name?" required>
     <div id="main-focus">What is your main focus for today?</div>
     <div id="main-focus-checkbox">
         <input type="checkbox" name="focus" id="focus-checkbox" onclick="focusCheckBoxValidate()">
         <label id="focus-label"></label>
     </div>
     <input type="text" name="focus-txtbox" id="focus-txtbox" required>
+
+    <h6 id="quote"></h6>
+    <div id="quote-div">
+        <button id="quote-button"><i class="fa-solid fa-rotate-right"></i></button>
+        <button id="add-quote">+</button>
+    </div>
+
 </section>
     <script src="scripts/main.js"></script>
     <script src="scripts/background.js"></script>

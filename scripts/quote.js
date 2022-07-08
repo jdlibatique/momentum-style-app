@@ -19,7 +19,7 @@ const quoteArray = ["“When you have a dream, you’ve got to grab it and never
         "— Oprah Winfrey"];
 
 
-const localQuotes = JSON.parse(localStorage.getItem('quotes'));
+let localQuotes = JSON.parse(localStorage.getItem('quotes'));
 
 if (!localQuotes) {
     localStorage.setItem('quotes', JSON.stringify(quoteArray));
