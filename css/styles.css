@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
-
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');*/
 body {
     background-size: cover;
     background-position: 50% 50%;
@@ -41,16 +41,39 @@ h1, h2, h3, h4, h5, h6, label, div {
     background: none;
 }
 
+#focus-txtbox::placeholder {
+    font-size: 3vw;
+    color: #fff;
+    text-align: center;
+}
+
 #main-focus-checkbox {
     position: absolute;
     bottom: 18%;
-
     text-align: center;
     font-size: 3vw;
 }
 
+#focus-delete-button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    font-size: 2vh;
+    text-align: center;
+    opacity: 0;
+    position: absolute;
+    bottom: 25%;
+    right: -20%
+}
+
+#focus-delete-button:hover {
+    color: #fdcece;
+}
+
 #focus-checkbox {
     position: absolute;
+    opacity: 0;
     bottom: 18%;
     display: none;
     right: 110%;
@@ -78,9 +101,10 @@ input[type="checkbox"] {
 #clockHeader {
     font-size: 13vh;
     position: absolute;
-    bottom: 35%;
+    bottom: 39%;
     font-family: "Inter", sans-serif;
     font-weight: 400;
+    opacity: 0;
 }
 
 #name-label {
@@ -109,11 +133,11 @@ input[type="checkbox"] {
     color: transparent;
 }
 
-::placeholder {
-    font-size: 3vw;
-    color: #fff;
-    text-align: center;
-}
+/*::placeholder {*/
+/*    font-size: 3vw;*/
+/*    color: #fff;*/
+/*    text-align: center;*/
+/*}*/
 
 
 .flex-container {
@@ -127,13 +151,24 @@ input[type="checkbox"] {
 
 #quote, #quote-div {
     position: absolute;
-    bottom: 2%;
+
     font-size: 0.75vw;
     color: rgba(255, 255, 255, 0.7);
 }
 
+#quote {
+    bottom: 2%;
+}
+
 #quote-div {
     /*display: none;*/
+    bottom: 3%;
+    /*opacity: 0;*/
+    /*display: none;*/
+}
+
+#quote:hover {
+
 }
 
 #quote-button, #add-quote {
@@ -146,4 +181,147 @@ input[type="checkbox"] {
 
 #quote-button:hover, #add-quote:hover {
     color: rgb(255, 95, 95);
+}
+
+/* Start of To Do*/
+
+
+
+/**{*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+#todo-button {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-family: "Inter", sans-serif;
+    outline: none;
+    border: none;
+    transition: 300ms ease-in-out;
+    color: #fff;
+    background-color: transparent;
+    font-size: 1.5vh;
+}
+
+#todo-button:hover {
+    color: #fdcece;
+}
+
+
+.wrapper{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    max-width: 400px;
+    height: 300px;
+    background: rgba(63, 63, 63, 0.8);
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    font-family: 'Poppins', sans-serif;
+    opacity: 0;
+    display: none;
+    /*transition: 2000ms ease-in-out;*/
+}
+.controls, li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.controls{
+    padding: 18px 25px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-button {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 1.5vh;
+}
+
+.close-button:hover {
+    color: #fdcece;
+}
+
+.controls .clear-btn{
+    border: none;
+    opacity: 0.6;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 7px 13px;
+    border-radius: 4px;
+    letter-spacing: 0.3px;
+    pointer-events: none;
+    transition: transform 0.25s ease;
+    /*background: linear-gradient(135deg, #1798fb 0%, #2D5CFE 100%);*/
+    background-color: #232337;
+}
+.clear-btn.active{
+    opacity: 0.9;
+    pointer-events: auto;
+
+}
+.clear-btn:active{
+    transform: scale(0.93);
+}
+.task-box{
+    margin-top: 20px;
+    margin-right: 5px;
+    padding: 0 20px 10px 25px;
+}
+.task-box.overflow{
+    overflow-y: auto;
+    max-height: 180px;
+}
+.task-box::-webkit-scrollbar{
+    width: 5px;
+}
+.task-box::-webkit-scrollbar-track{
+    background: #d3d3d3;
+    border-radius: 25px;
+}
+.task-box::-webkit-scrollbar-thumb{
+    background: #959595;
+    border-radius: 25px;
+}
+.task-box .task{
+    list-style: none;
+    font-size: 17px;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    align-items: flex-start;
+    border-bottom: 1px solid #ccc;
+}
+
+.task-box .task label{
+    display: flex;
+    align-items: flex-start;
+}
+
+.task label p{
+    user-select: none;
+    margin-left: 12px;
+    word-wrap: break-word;
+}
+
+.task label p.checked{
+    text-decoration: line-through;
+}
+
+#todoinput{
+    /*height: 30px;*/
+    /*padding: 15px 10px;*/
+    padding: 0 1vw;
+    height: 2vh;
+    border: none;
 }

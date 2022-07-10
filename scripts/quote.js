@@ -32,6 +32,9 @@ function addQuote() {
         localQuotes.push(newQuote);
     }
     setLocalStorage(localQuotes);
+    fadeOut(document.querySelector("#quote"));
+    document.querySelector("#quote").innerHTML = localQuotes[localQuotes.length - 1];
+    fadeIn(document.querySelector("#quote"));
 }
 
 function setLocalStorage (localQuotes) {

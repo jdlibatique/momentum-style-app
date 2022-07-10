@@ -1,4 +1,5 @@
-export const setClock = () => {
+
+const setClock = () => {
     // let today= new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
     let today = new Date();
@@ -26,6 +27,7 @@ export const setClock = () => {
 
     console.log(today);
     document.querySelector("#clockHeader").innerText = time;
+    fadeIn(document.querySelector("#clockHeader"));
     // let timeout = setTimeout(setClock =>  1000);
     let t = setTimeout(() => setClock(), 1000);
     return timeOfDay;

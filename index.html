@@ -8,31 +8,50 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://kit.fontawesome.com/84aaff1918.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
-<body onload="setBackground(); setQuote()">
+<body onload="setBackground(); setQuote(); setClock();">
 <section id="main-section">
 
     <h1 id="clockHeader"></h1>
     <label id="name-label" for="name"></label><br>
     <input type="text" name="name" id="name" placeholder="Hello, what's your name?" required>
+
     <div id="main-focus">What is your main focus for today?</div>
     <div id="main-focus-checkbox">
         <input type="checkbox" name="focus" id="focus-checkbox" onclick="focusCheckBoxValidate()">
         <label id="focus-label"></label>
+        <button id="focus-delete-button"><i class="fa-solid fa-circle-minus"></i></button>
     </div>
+
     <input type="text" name="focus-txtbox" id="focus-txtbox" required>
 
-    <h6 id="quote"></h6>
-    <div id="quote-div">
-        <button id="quote-button"><i class="fa-solid fa-rotate-right"></i></button>
-        <button id="add-quote">+</button>
+        <h6 id="quote"></h6>
+        <div id="quote-div">
+            <button id="quote-button"><i class="fa-solid fa-rotate-right"></i></button>
+            <button id="add-quote"><i class="fa-solid fa-plus"></i></button>
+        </div>
+
+
+    <div class="wrapper">
+        <div class="controls">
+<!--            <img src="bars-icon.svg" alt="icon">-->
+            <input id="todoinput" type="text" placeholder="Add a new task">
+            <button class="clear-btn">Clear All</button>
+            <button class="close-button"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul class="task-box"></ul>
     </div>
+    <button id="todo-button">Todo</button>
 
 </section>
     <script src="scripts/main.js"></script>
+    <script src="scripts/fader.js"></script>
+    <script src="scripts/clock.js"></script>
     <script src="scripts/background.js"></script>
     <script src="scripts/quote.js"></script>
-    <script src="scripts/name.js" type="module"></script>
+    <script src="scripts/name.js"></script>
     <script src="scripts/focus.js"></script>
+    <script src="scripts/todo.js"></script>
 </body>
 </html>
