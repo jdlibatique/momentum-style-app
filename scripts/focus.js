@@ -1,81 +1,84 @@
 const localFocus = localStorage.getItem('focus');
 const localCheckBoxStatus = localStorage.getItem('checkbox');
 
-if (localFocus) {
-  let focusCheckBox = document.querySelector("#focus-checkbox");
-
-  document.querySelector("#focus-txtbox").style.display = "none";
-  focusCheckBox.style.display = "initial";
-
-  let mainFocus = document.querySelector("#main-focus");
-  mainFocus.innerHTML = "TODAY";
-
-  let focusLabel = document.querySelector("#focus-label");
-  focusLabel.innerHTML = localFocus;
-
-  if (localCheckBoxStatus == 'true') {
-    focusCheckBox.checked = true;
-    focusLabel.innerHTML = "<del>" + localFocus + "</del>";
-    localStorage.setItem('checkbox', focusCheckBox.checked);
-  }
-  else if (localCheckBoxStatus == 'false') {
-    focusLabel.innerHTML = localFocus;
-    localStorage.setItem('checkbox', focusCheckBox.checked);
-  }
-}
-
-else {
-  document.querySelector("#focus-txtbox").addEventListener("keyup", (event) => {
-    if (event.key === "Enter") {
-      let focusValue = document.querySelector("#focus-txtbox").value;
-      // document.querySelector("#focus-txtbox").style.display = "none";
-      fadeOut(document.querySelector("#focus-txtbox"));
-      // document.querySelector("#focus-checkbox").style.display = "initial";
-      fadeIn(document.querySelector("#focus-checkbox"));
-  
-      let mainFocus = document.querySelector("#main-focus");
-      mainFocus.innerHTML = "TODAY";
-      
-      let focusLabel = document.querySelector("#focus-label");
-      focusLabel.innerHTML = focusValue;
-
-      localStorage.setItem('focus', focusValue);
-      focusCheckBoxValidate();
-    }
-  });
-}
-
-function focusCheckBoxValidate(){
+const setFocus = () => {
   if (localFocus) {
     let focusCheckBox = document.querySelector("#focus-checkbox");
-    let focusLabel = document.querySelector("#focus-label");
 
-    if (focusCheckBox.checked == true) {
+    document.querySelector("#focus-txtbox").style.display = "none";
+    focusCheckBox.style.display = "initial";
+
+    let mainFocus = document.querySelector("#main-focus");
+    mainFocus.innerHTML = "TODAY";
+
+    let focusLabel = document.querySelector("#focus-label");
+    focusLabel.innerHTML = localFocus;
+
+    if (localCheckBoxStatus == 'true') {
+      focusCheckBox.checked = true;
       focusLabel.innerHTML = "<del>" + localFocus + "</del>";
       localStorage.setItem('checkbox', focusCheckBox.checked);
     }
-
-    else {
+    else if (localCheckBoxStatus == 'false') {
       focusLabel.innerHTML = localFocus;
       localStorage.setItem('checkbox', focusCheckBox.checked);
     }
   }
 
   else {
-    let focusCheckBox = document.querySelector("#focus-checkbox");
-    let focusLabel = document.querySelector("#focus-label");
-    let focusValue = document.querySelector("#focus-txtbox").value;
+    document.querySelector("#focus-txtbox").addEventListener("keyup", (event) => {
+      if (event.key === "Enter") {
+        let focusValue = document.querySelector("#focus-txtbox").value;
+        // document.querySelector("#focus-txtbox").style.display = "none";
+        fadeOut(document.querySelector("#focus-txtbox"));
+        // document.querySelector("#focus-checkbox").style.display = "initial";
+        fadeIn(document.querySelector("#focus-checkbox"));
 
-    if (focusCheckBox.checked == true) {
-      focusLabel.innerHTML = "<del>" + focusValue + "</del>";
-      localStorage.setItem('checkbox', focusCheckBox.checked);
+        let mainFocus = document.querySelector("#main-focus");
+        mainFocus.innerHTML = "TODAY";
+
+        let focusLabel = document.querySelector("#focus-label");
+        focusLabel.innerHTML = focusValue;
+
+        localStorage.setItem('focus', focusValue);
+        focusCheckBoxValidate();
+      }
+    });
+  }
+
+  function focusCheckBoxValidate(){
+    if (localFocus) {
+      let focusCheckBox = document.querySelector("#focus-checkbox");
+      let focusLabel = document.querySelector("#focus-label");
+
+      if (focusCheckBox.checked == true) {
+        focusLabel.innerHTML = "<del>" + localFocus + "</del>";
+        localStorage.setItem('checkbox', focusCheckBox.checked);
+      }
+
+      else {
+        focusLabel.innerHTML = localFocus;
+        localStorage.setItem('checkbox', focusCheckBox.checked);
+      }
     }
+
     else {
-      focusLabel.innerHTML = focusValue;
-      localStorage.setItem('checkbox', focusCheckBox.checked);
+      let focusCheckBox = document.querySelector("#focus-checkbox");
+      let focusLabel = document.querySelector("#focus-label");
+      let focusValue = document.querySelector("#focus-txtbox").value;
+
+      if (focusCheckBox.checked == true) {
+        focusLabel.innerHTML = "<del>" + focusValue + "</del>";
+        localStorage.setItem('checkbox', focusCheckBox.checked);
+      }
+      else {
+        focusLabel.innerHTML = focusValue;
+        localStorage.setItem('checkbox', focusCheckBox.checked);
+      }
     }
   }
 }
+
 
 document.querySelector("#main-focus-checkbox").addEventListener("mouseover", () => {
   document.querySelector("#focus-checkbox").style.opacity = "1";
@@ -88,7 +91,13 @@ document.querySelector("#main-focus-checkbox").addEventListener("mouseleave", ()
 });
 
 document.querySelector("#focus-delete-button").addEventListener("click", () => {
-  localStorage.removeItem(localFocus);
+
+  localStorage.removeItem(`focus`);
+  document.querySelector("#focus-label").innerHTML = ``;
+  document.querySelector("#focus-txtbox").value = ``;
+  fadeOut(document.querySelector("#focus-checkbox"));
+  fadeIn(document.querySelector("#focus-txtbox"));
+  setFocus();
 })
 
 // const fadeIn = (element) => {
