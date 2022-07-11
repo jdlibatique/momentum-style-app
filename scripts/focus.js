@@ -90,7 +90,7 @@ document.querySelector("#main-focus-checkbox").addEventListener("mouseleave", ()
 });
 
 document.querySelector("#focus-delete-button").addEventListener("click", () => {
-
+  document.querySelector("#main-focus").innerHTML = "What is your main focus for today?";
   localStorage.removeItem(`focus`);
   document.querySelector("#focus-label").innerHTML = ``;
   document.querySelector("#focus-txtbox").value = ``;
