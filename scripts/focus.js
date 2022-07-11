@@ -45,40 +45,39 @@ const setFocus = () => {
       }
     });
   }
+}
 
-  function focusCheckBoxValidate(){
-    if (localFocus) {
-      let focusCheckBox = document.querySelector("#focus-checkbox");
-      let focusLabel = document.querySelector("#focus-label");
+function focusCheckBoxValidate(){
+  if (localFocus) {
+    let focusCheckBox = document.querySelector("#focus-checkbox");
+    let focusLabel = document.querySelector("#focus-label");
 
-      if (focusCheckBox.checked == true) {
-        focusLabel.innerHTML = "<del>" + localFocus + "</del>";
-        localStorage.setItem('checkbox', focusCheckBox.checked);
-      }
-
-      else {
-        focusLabel.innerHTML = localFocus;
-        localStorage.setItem('checkbox', focusCheckBox.checked);
-      }
+    if (focusCheckBox.checked == true) {
+      focusLabel.innerHTML = "<del>" + localFocus + "</del>";
+      localStorage.setItem('checkbox', focusCheckBox.checked);
     }
 
     else {
-      let focusCheckBox = document.querySelector("#focus-checkbox");
-      let focusLabel = document.querySelector("#focus-label");
-      let focusValue = document.querySelector("#focus-txtbox").value;
+      focusLabel.innerHTML = localFocus;
+      localStorage.setItem('checkbox', focusCheckBox.checked);
+    }
+  }
 
-      if (focusCheckBox.checked == true) {
-        focusLabel.innerHTML = "<del>" + focusValue + "</del>";
-        localStorage.setItem('checkbox', focusCheckBox.checked);
-      }
-      else {
-        focusLabel.innerHTML = focusValue;
-        localStorage.setItem('checkbox', focusCheckBox.checked);
-      }
+  else {
+    let focusCheckBox = document.querySelector("#focus-checkbox");
+    let focusLabel = document.querySelector("#focus-label");
+    let focusValue = document.querySelector("#focus-txtbox").value;
+
+    if (focusCheckBox.checked == true) {
+      focusLabel.innerHTML = "<del>" + focusValue + "</del>";
+      localStorage.setItem('checkbox', focusCheckBox.checked);
+    }
+    else {
+      focusLabel.innerHTML = focusValue;
+      localStorage.setItem('checkbox', focusCheckBox.checked);
     }
   }
 }
-
 
 document.querySelector("#main-focus-checkbox").addEventListener("mouseover", () => {
   document.querySelector("#focus-checkbox").style.opacity = "1";
